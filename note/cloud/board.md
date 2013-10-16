@@ -3,7 +3,7 @@
 ```
 -- phpMyAdmin SQL Dump
 -- version 2.10.3
--- http://www.phpmyadmin.net
+-- [phpmyadmin](http://www.phpmyadmin.net)
 -- 
 -- 主機: localhost
 -- 建立日期: Oct 15, 2013, 05:06 PM
@@ -38,10 +38,6 @@ CREATE TABLE `msg` (
   PRIMARY KEY  (`sid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 ```
--- 
--- 列出以下資料庫的數據： `msg`
--- 
-
 
 -- --------------------------------------------------------
 
@@ -61,9 +57,6 @@ CREATE TABLE `user` (
   UNIQUE KEY `email` (`email`,`account`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 ```
--- 
--- 列出以下資料庫的數據： `user`
--- 
 ==========
 ```
 運行：
