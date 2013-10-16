@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 2.10.2
 -- http://www.phpmyadmin.net
 -- 
@@ -18,7 +18,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- 
 -- 資料表格式： `msg`
 -- 
-
+```SQL
 CREATE TABLE `msg` (
   `sid` varchar(8) collate utf8_unicode_ci NOT NULL,
   `time` varchar(8) collate utf8_unicode_ci NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `msg` (
   PRIMARY KEY  (`like`),
   UNIQUE KEY `sid` (`sid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
+```
 -- 
 -- 列出以下資料庫的數據： `msg`
 -- 
@@ -45,7 +45,7 @@ CREATE TABLE `msg` (
 -- 
 -- 資料表格式： `user`
 -- 
-
+```SQL
 CREATE TABLE `user` (
   `sid` varchar(8) character set utf8 collate utf8_czech_ci NOT NULL,
   `account` varchar(18) collate utf8_unicode_ci NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE `user` (
   `birthday` varchar(8) collate utf8_unicode_ci default NULL,
   UNIQUE KEY `account` (`account`,`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
+```
 -- 
 -- 列出以下資料庫的數據： `user`
 -- 
