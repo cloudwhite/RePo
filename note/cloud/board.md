@@ -1,5 +1,6 @@
 白雲
 ==================
+```
 -- phpMyAdmin SQL Dump
 -- version 2.10.3
 -- http://www.phpmyadmin.net
@@ -10,7 +11,7 @@
 -- PHP 版本: 5.2.6
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
+```
 -- 
 -- 資料庫: `board`
 -- 
