@@ -1,5 +1,6 @@
 白雲
 ==================
+```
 -- phpMyAdmin SQL Dump
 -- version 2.10.3
 -- http://www.phpmyadmin.net
@@ -10,7 +11,7 @@
 -- PHP 版本: 5.2.6
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
+```
 -- 
 -- 資料庫: `board`
 -- 
@@ -20,7 +21,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- 
 -- 資料表格式： `msg`
 -- 
-
+```sql
 CREATE TABLE `msg` (
   `sid` int(225) unsigned NOT NULL auto_increment,
   `user` varchar(20) collate utf8_unicode_ci NOT NULL,
@@ -36,7 +37,7 @@ CREATE TABLE `msg` (
   `password` varchar(20) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`sid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
+```
 -- 
 -- 列出以下資料庫的數據： `msg`
 -- 
@@ -47,7 +48,7 @@ CREATE TABLE `msg` (
 -- 
 -- 資料表格式： `user`
 -- 
-
+```sql
 CREATE TABLE `user` (
   `sid` int(20) unsigned NOT NULL auto_increment,
   `name` varchar(10) collate utf8_unicode_ci NOT NULL,
@@ -59,11 +60,12 @@ CREATE TABLE `user` (
   PRIMARY KEY  (`sid`),
   UNIQUE KEY `email` (`email`,`account`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
+```
 -- 
 -- 列出以下資料庫的數據： `user`
 -- 
 ==========
+```
 運行：
 	首先我們要進到網站
 	要先登入
@@ -92,4 +94,5 @@ CREATE TABLE `user` (
     like(讚)
     reply(回復發言)
     password(發言設置密碼)
+```
 ================
