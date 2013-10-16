@@ -1,4 +1,5 @@
-﻿CREATE TABLE `msg_board` (
+﻿```sql
+CREATE TABLE `msg_board` (
   `sid` int(10) unsigned NOT NULL auto_increment,
   `like` int(10) NOT NULL,
   `type` varchar(20) collate utf8_unicode_ci default NULL,
@@ -12,3 +13,4 @@
   `date-time` varchar(12) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`sid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+```
