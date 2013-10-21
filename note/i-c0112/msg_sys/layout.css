@@ -1,0 +1,8 @@
+textarea {
+	margin-left: 35%;
+	resize: none;
+}
+div#board_title, div#input_desc {
+	text-align: center;
+}
+ 
