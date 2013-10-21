@@ -30,6 +30,7 @@
 	//mysql_query("SET NAMES ‘UTF8′");
 	//$link = mysql_connect( "127.0.0.1" , "root" , "123456" );
 	//$now = date("o/m/d  h:i:s  a");
+	echo "<meta charset='UTF-8'>";
 	echo "<div style='text-align:center;'>";
 	$content = $_POST["content"];
 	$content = ereg_replace("\n", "<br>", $content);
