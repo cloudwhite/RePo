@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>留言板初體驗-///-</title>
+        <link rel="stylesheet" href="layout.css"/>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="event.js"></script>
+    </head>
+    <body>
+        <div id="body_container">
+            <div id="board_title">留言板のprototype</div><br />
+            <textarea id="display" readonly="true" cols="50" rows="30"></textarea><br />
+            <form id="textContent" onsubmit="return false;">
+                <div id="input_desc">使用者輸入:</div>
+                <textarea id="input" rows="5" cols="50"></textarea>
+                <input id="submit" type="submit" value="click me!"/>
+            </form>
+        </div>
+    </body>
+</html>
