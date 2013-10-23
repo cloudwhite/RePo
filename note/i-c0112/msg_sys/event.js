@@ -13,6 +13,7 @@ $(function(){
                     userInput: _input
                },
                success: function(data, status, jqXHR){
+                   console.log(data.Errno);
                    var dt = new Date(data.timestamp*1000);
                    console.log(data.timestamp);
                    console.log(dt);
