@@ -20,5 +20,5 @@
 	
 	echo " Rigister Success ! "."<br>";
 	echo "          Welcome , ".$id."<br>";
-	echo "<a href='../index.html'>Back to HomePage ?</a>";	
+	echo "<a href='../index.php'>Back to HomePage ?</a>";	
 ?>

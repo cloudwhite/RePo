@@ -1,3 +1,9 @@
+<?php session_start(); ?>
+<?php
+if($_SESSION['user']==null){
+	header("location:register.php");
+}
+?>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -10,7 +16,7 @@
 			<div id="contents"></div>			
 				留言內容 : 	<input type="text" name="content" id="content" />
 							<input type="submit" value="留言" onclick="chatsend()" />
-							<a href="./index.html">登出</a>
+							<a href="./app/logout.php">登出</a>
 			<!-- 自動抓取 ajax 同步聊天記錄 ,每 5 秒一次動作 -->
 			<script language="JavaScript" type="text/javascript">
 				setInterval(function(){showcontent()},5000);
