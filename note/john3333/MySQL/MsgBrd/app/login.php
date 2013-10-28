@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 //	Create connection
 	$con=mysqli_connect("127.0.0.1","root","root","MessageBoard");
@@ -11,13 +12,14 @@
 	if	(mysqli_query($con,$sql))
 		{
 			if	($password==$row['pass'])
-				{					
+				{	
+					$_SESSION['user']=$row['id'];
 					echo "Welcome ".$row['id']." !"."<br>"  ;
-					echo "<a href='../chat.html'>Go to Chat ?</a><br>";	
+					echo "<a href='../chat.php'>Go to Chat ?</a><br>";	
 				}
 			else{
 					echo "Fail Login"."<br>";
-					echo "<a href='../index.html'>Back to HomePage ?</a><br>";
+					echo "<a href='../index.php'>Back to HomePage ?</a><br>";
 				}
 		}
 	else{
