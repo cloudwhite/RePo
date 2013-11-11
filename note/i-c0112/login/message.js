@@ -50,10 +50,11 @@ function load_msg() {
             o.html('');
             var html = '';
             for(var i in data) {
+                var dt = new Date(data[i].timestamp * 1000);
                 html +=
-                '<br/><br/><span class="userAcc" >' + data[i].userAcc + '</span>' + '    發表於    ' + Date(data[i].timestamp * 1000).toLocaleString() +
-                ':<p class="subject">' + data[i].subject + '</p>' + '<p class="content">' + data[i].content + '</p>' +
-                '<br/>====================================';
+                '<br/><br/><span class="userAcc" >' + data[i].userAcc + '</span>' + '    發表於    ' + dt.toLocaleString()
+                + ':<p class="subject">' + data[i].subject + '</p>' + '<p class="content">' + data[i].content + '</p>'
+                + '<br/>====================================';
             }
             o.html(html);
         }

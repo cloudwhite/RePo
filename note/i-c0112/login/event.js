@@ -8,6 +8,10 @@ $(function() {
         $("#send_text").click(function(){
             send_text();
         });
+        
+        $("#update").click(function(){
+            load_msg();
+        });
     }
     
     // register.php

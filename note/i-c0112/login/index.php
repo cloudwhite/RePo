@@ -64,10 +64,11 @@ if ($login) {
                     <p>User:$_SESSION[$session]</p>
 					<form method=\"post\">
 						<input type=\"submit\" name=\"logout\" value=\"logout\"/>
+						<input type=\"button\" id=\"update\" value=\"update\" />
 					</form>
 					<br/>";
     // 先顯示10筆訊息做測試，時間由JS轉為locale
-	$display .= "====================================<br/><div id=\"output\">AA</div><script>load_msg()</script>";
+	$display .= "====================================<br/><div id=\"output\"></div><script>load_msg()</script>";
 	$display .= '</div>
                 <div id="input_area">
                                     寫個留言吧ლ(́◉◞౪◟◉‵ლ):<input id="subject" type="text" value="輸入主題" required /><br/>

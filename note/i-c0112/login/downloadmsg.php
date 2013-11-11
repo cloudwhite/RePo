@@ -12,7 +12,7 @@ if (!$db) {
     die("{\"error\": \"$err\"}");
 }
 
-$query = "SELECT userAcc, subject, content, timestamp FROM msg_board ORDER BY timestamp";
+$query = "SELECT userAcc, subject, content, timestamp FROM msg_board ORDER BY timestamp DESC";
 $result = $db->query($query);
 if (!$result) {
     $err = $db->error;
@@ -25,6 +25,7 @@ $max = 10;
 $cnt = 0;
 // fetch at most 10 rows
 while ( ($arr = $result->fetch_assoc() ) && $cnt < $max) {
+    $arr['timestamp'] = (int)($arr['timestamp']);
     $ret[$cnt++] = $arr;
     // var_dump($arr);
     // echo '<br/>' . PHP_EOL;
