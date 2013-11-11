@@ -1,0 +1,29 @@
+#display {
+	background-color: #fdfdba;
+	border:double;
+	border-color: red;
+	border-width: 5px;
+	text-align: center;
+}
+#login_field, #msg_board {
+	background-color: #0cb020;
+	border: groove;
+	border-width: 6px;
+	border-color: black;
+	margin-top: 2.5%;
+	margin-left: 32%;
+	margin-right: 32%;
+	margin-bottom: 5%;
+	padding: 4%;
+}
+
+#msg_board {
+	color: blue;
+	font-size: large;
+	font-style: oblique;
+	font-weight: bold;
+}
+
+textarea {
+    resize: none;
+}
