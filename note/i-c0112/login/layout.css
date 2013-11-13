@@ -3,27 +3,56 @@
 	border:double;
 	border-color: red;
 	border-width: 5px;
-	text-align: center;
 }
+
+#display h1 {
+    margin-left: 45%;
+}
+
+#login_field {
+    margin-left: 32%;
+    margin-right: 32%;
+}
+
 #login_field, #msg_board {
 	background-color: #0cb020;
 	border: groove;
 	border-width: 6px;
 	border-color: black;
 	margin-top: 2.5%;
-	margin-left: 32%;
-	margin-right: 32%;
 	margin-bottom: 5%;
 	padding: 4%;
 }
 
 #msg_board {
+    width: 50%;
+    margin-left: 8%;
+    margin-right: auto;
 	color: blue;
-	font-size: large;
 	font-style: oblique;
 	font-weight: bold;
 }
 
+#output {
+    text-align: center;
+}
+
+#input_area {
+    vertical-align:top;
+}
+
+table {
+    padding-left: 8%;
+}
+
 textarea {
     resize: none;
+}
+
+.userAcc {
+    color: yellow;
+}
+
+.subject {
+    color: red;
 }
