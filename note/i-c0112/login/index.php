@@ -60,27 +60,29 @@ else {
 <?php
 if ($login) {
     // 顯示user帳號和歡迎訊息
-	$display .= "<div id=\"msg_board\">
-                    <p>User:$_SESSION[$session]</p>
-					<form method=\"post\">
-						<input type=\"submit\" name=\"logout\" value=\"logout\"/>
-						<input type=\"button\" id=\"update\" value=\"update\" />
-					</form>
-					<br/>";
+	$display .= "<table><tr>
+                    <td id=\"msg_board\">
+                        <p>User:$_SESSION[$session]</p>
+                        <form method=\"post\">
+                        	<input type=\"submit\" name=\"logout\" value=\"logout\"/>
+                        	<input type=\"button\" id=\"update\" value=\"update\" />
+                        </form>
+<br/>";
     // 先顯示10筆訊息做測試，時間由JS轉為locale
-	$display .= "====================================<br/><div id=\"output\"></div><script>load_msg()</script>";
-	$display .= '</div>
-                <div id="input_area">
-                                    寫個留言吧ლ(́◉◞౪◟◉‵ლ):<input id="subject" type="text" value="輸入主題" required /><br/>
-                    <textarea id="content" rows="6" cols="100" required ></textarea>
-                    <input type="button" id="send_text" value="送出" />
-                </div>';
+	$display .= "=========================================<br/><div id=\"output\"></div><script>load_msg()</script>";
+    // <div id="msg_board">...</div>
+	$display .= '  </td>
+                    <td id="input_area">
+                                        寫個留言吧ლ(́◉◞౪◟◉‵ლ):<input id="subject" type="text" value="輸入主題" required /><br/>
+                        <textarea id="content" rows="6" cols="60" required ></textarea>
+                        <input type="button" id="send_text" value="送出" />
+                    </td>
+                </tr></table>';
 	
 	print $display;
 }
 else {
-	$display.= '<br/>
-				<form method="post">
+	$display.= '<form method="post">
 					<div id="login_field">
 						Account:<input name="account" type="text" required/><br/>
 						Password:<input name="password" type="password" required/><br/>
