@@ -13,13 +13,26 @@
 		{
 			if	($password==$row['pass'])
 				{	
-					$_SESSION['user']=$row['id'];
-					echo "Welcome ".$row['id']." !"."<br>"  ;
-					echo "<a href='../chat.php'>Go to Chat ?</a><br>";	
+					$_SESSION['user']=$row['user'];
+					$_SESSION['id']=$row['id'];
+					echo "<html>";
+					echo "	<head>";
+					echo "		<meta charset='utf-8'>";
+					echo "		<link rel='stylesheet' type='css/text' href='../css/login.css' />";
+					echo "		<title>Login Success !</title>";
+					echo "	</head>";
+					echo "	<body>";
+					echo "		<div id='loginform'>";
+					echo "			<h3>Welcome , ".$row['id']." !"."</h3>";
+					echo "			<a href='../msg.php' style='text-decoration:none' >Go to Msg ?</a>";
+					echo "			<a href='../update.php'>Update Your DATA ?</a><br>";
+					echo "		</div>";
+					echo "	</body>";
+					echo "</html>";
 				}
 			else{
 					echo "Fail Login"."<br>";
-					echo "<a href='../index.php'>Back to HomePage ?</a><br>";
+					echo "<a href='../index.php' style='text-decoration:none'>Back to HomePage ?</a><br>";
 				}
 		}
 	else{
