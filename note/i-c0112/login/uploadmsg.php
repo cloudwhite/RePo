@@ -12,8 +12,8 @@ if (!$db) {
     die($err);
 }
 
-$subject = $_POST["subject"];
-$content = $_POST["content"];
+$subject = htmlspecialchars($_POST["subject"]);
+$content = htmlspecialchars($_POST["content"]);
 $t = time();
 $sql = "INSERT INTO msg_board (userAcc, subject, content, timestamp) VALUES ('$userAcc', '$subject', '$content', '$t');";
 

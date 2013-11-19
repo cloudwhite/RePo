@@ -56,3 +56,21 @@ textarea {
 .subject {
     color: red;
 }
+
+.msg:hover {
+    background-color: white;
+}
+
+.msg.selected {
+    border:outset;
+    border-color:#FFFF00;
+    border-width:thick;
+}
+
+.msg button {
+    visibility:hidden;
+}
+
+.msg:hover button{
+    visibility:visible;
+}

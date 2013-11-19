@@ -5,13 +5,14 @@ $(function() {
             window.location.assign("/login/register.php"); 
         });
     
-        $("#send_text").click(function(){
-            send_text();
-        });
+        $("#update").click(load_msg);
         
-        $("#update").click(function(){
-            load_msg();
-        });
+        $("#output").on("click", "button.del", delete_msg_from_server)
+        .on("click", "button.modify", edit_mode);
+        
+        $("#input_area").on("click", "#send_text", send_text)
+        .on("click", "#mod_text", modify_msg_from_server)
+        .on("click", "#cancel", view_mode);
     }
     
     // register.php
