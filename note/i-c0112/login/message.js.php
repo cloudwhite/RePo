@@ -74,6 +74,11 @@ function load_msg() {
 }
 
 function delete_msg_from_server(e) {
+    var _cancel = $("#cancel");
+    if (_cancel.length) {
+        _cancel.click();
+    }
+    
     var btn = e.target;
     $.ajax({
         url: "deletemsg.php",
