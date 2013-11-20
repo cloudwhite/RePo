@@ -12,7 +12,7 @@ if (!$db) {
     die("{\"error\": \"$err\"}");
 }
 
-$query = "SELECT userAcc, subject, content, timestamp FROM msg_board ORDER BY timestamp DESC";
+$query = "SELECT sid, userAcc, subject, content, timestamp FROM msg_board ORDER BY timestamp DESC";
 $result = $db->query($query);
 if (!$result) {
     $err = $db->error;

@@ -48,11 +48,14 @@ else {
 <html lang="zh-TW">
 	<head>
 		<meta charset="UTF-8"/>
-		<title>Login plz</title>
+		<title>Message</title>
 		<link rel="stylesheet" href="layout.css"/>
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="event.js"></script>
-		<script src="message.js"></script>
+<?php
+if ($login)
+		print '<script src="message.js.php"></script>';
+?>
 	</head>
 	
 	<body>
@@ -62,14 +65,14 @@ if ($login) {
     // 顯示user帳號和歡迎訊息
 	$display .= "<table><tr>
                     <td id=\"msg_board\">
-                        <p>User:$_SESSION[$session]</p>
+                        <p id=\"userAcc\">User:$_SESSION[$session]</p>
                         <form method=\"post\">
                         	<input type=\"submit\" name=\"logout\" value=\"logout\"/>
                         	<input type=\"button\" id=\"update\" value=\"update\" />
                         </form>
 <br/>";
     // 先顯示10筆訊息做測試，時間由JS轉為locale
-	$display .= "=========================================<br/><div id=\"output\"></div><script>load_msg()</script>";
+	$display .= "<div id=\"output\"></div><script>load_msg()</script>";
     // <div id="msg_board">...</div>
 	$display .= '  </td>
                     <td id="input_area">

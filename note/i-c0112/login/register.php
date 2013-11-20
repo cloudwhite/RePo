@@ -7,7 +7,6 @@ $em = $_POST['email'];
 $pn = $_POST['phone'];
 $bt = $_POST['birth'];
 
-$login = false;
 if (isset($acc, $pwd)) {
     // 註冊並處理SQL錯誤，尤其是unique是否有重複
     // 錯誤->留在此頁並顯示錯誤訊息; 正確->跳至index.php並登入
@@ -49,7 +48,7 @@ if (isset($acc, $pwd)) {
 	<body>
 	   <div id="display">
 	       <form method="post">
-                           帳號:<input type="text" name="account" value="<?php print $err?>" required /><br />
+                           帳號:<input type="text" name="account" required /><?php print $err?><br />
 	           密碼:<input type="text" name="password" required /><br />
 	           姓名:<input type="text" name="name" /><br />
                E-mail<input type="text" name="email" /><br />
