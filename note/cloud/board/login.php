@@ -10,6 +10,7 @@
 	{
 		$_SESSION['account'] = $row ['account'];
 		$_SESSION['user'] = $row['name'];
+		$_SESSION['sid'] = $row['sid'];
 		echo "<div style = 'text-align:center;'>";
 		echo "welcome";
 		echo $row['name'];

@@ -15,17 +15,23 @@
 	</head>
 	<body>
 		<script language="JavaScript" type="text/javascript">
-        	setInterval(function(){showcontent()},3000);
+        	/*function myrefresh()
+ 			{
+      			window.location.reload();
+ 			}
+ 			setTimeout('myrefresh()',1000);/*
         </script>
         <div style="text-align: right;">
         <form action="logout.php" method="get">
         	<input type="submit" value="logout" />
         </form>
+        <br>
+        	<a href = 'modifyuser.php'>modify-personal-information</a>
 		</div>
 		<h1 style="text-align:center;">welcome</h1>
 		<form action = "messagein.php" method = "post" name = "form">
 		<div style="text-align:center;">
-		<textarea id = "message" name = "content" wrap="soft" style=" width: 500px; height: 100px"></textarea>
+		<textarea id = "message" name = "content" wrap="soft" style=" width: 700px; height: 100px"></textarea>
 		</div>
 		<br>
 		<div style = "text-align:center;">
@@ -42,22 +48,43 @@
 	while($row = mysqli_fetch_array($result)){
 		echo "<br>
 			<br>
-			<table align='center' width='300px' height='100px' border='0' >
- 			<tr style=font-size:10px;>
- 				<td>account:</td>
- 				<td>".$row['account']."</td>
+			<table align='center' width='700px' height='150px' border='0' >
+ 			<tr style=font-size:10px;height:10px>
+ 				<td></td>
+ 				<td></td>
+ 				<td>
+ 					<form action = 'modifymsg.php' method = 'post' name = 'modifymsgform' >
+ 					<input type = 'textarea' style = 'display : none;' value = ".$row['sid']." name = 'msid' />
+ 					<input type = 'submit' value = 'modify' />
+ 					</form>
+ 				</td>
+ 				<td>
+ 					<form action = 'deletemsg.php' method = 'post' name = 'delform' >
+ 					<input type = 'textarea' style = 'display : none;' value = ".$row['sid']." name = 'dsid' />
+ 					<input type = 'submit' value = 'delete' />
+ 					</form>
+ 				</td>
  			</tr>
- 			<tr style=font-size:20px;>
- 				<td>user:</td>
- 				<td>".$row['user']."</td>
+ 			<tr style=height:10px>
+ 				<td style=width:70px>user:
+ 				".$row['user']."</td>
+ 				<td align='left'>center:</td>
     		</tr>
-    		<tr style=font-size:15px;>
-    			<td>center:</td>
-    			<td>".$row['content']."</td>
+    		<tr >
+    			<td></td>
+    			<td align='left'>".$row['content']."</td>
     		</tr>
-    		<tr style=font-size:10px;>
-    			<td>time:</td>
-    			<td>".$row['date']."</td>
+    		<tr style=font-size:5px;height:10px>
+    			<td></td>
+    			<td></td>
+    			<td>msgtime:</td>
+    			<td>modify time :</td>
+    		</tr>
+    		<tr style=font-size:5px;height:10px>
+    			<td></td>
+    			<td></td>
+    			<td style=width:120px>".$row['date']."</td>
+    			<td style=width:120px>".$row['modifydate']."</td>
   			</tr>
 		</table>";
 	}

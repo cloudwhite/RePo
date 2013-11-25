@@ -13,9 +13,9 @@
 	//echo $content."<br>";
 	$date = date("o/m/d  h:i:s  a");
 	//echo $date."<br>";
-	$user = $_SESSION['user'];
+	$user = $_SESSION['account'];
 	//echo $user."<br>";
-	$account = $_SESSION['account'];
+	$account = $_SESSION['sid'];
 	//echo $account;
 	if($content != ""){
 	$sql = "INSERT INTO msg (user , account , `date` , content) VALUES ('$user' , '$account' , '$date' , '$content')";
@@ -30,9 +30,9 @@
 		echo "<a href='lookmessage.php'>goback</a>";
 	}
 	else{
-		echo "error";
+		echo "error : enter information fail";
 	}}
 	else{
-		echo "error";
+		echo "error : content can not NULL";
 	}
 ?>
