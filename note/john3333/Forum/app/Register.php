@@ -1,15 +1,14 @@
 <?php	
 // Create connection
-	$con=mysqli_connect("127.0.0.1","root","root","MessageBoard");
+	$con=mysqli_connect("127.0.0.1","root","root","Forum");
 //
-	$user=$_POST['user'];
-	$pass=$_POST['password'];
-	$id=$_POST['id'];
+	$gender=$_POST['gender'];
+	$birthday=$_POST['birthday'];
 	$email=$_POST['email'];
-	$phone=$_POST['phone'];
-	$birth=$_POST['birthday'];
-	$sql="INSERT INTO user (user,pass,id,email,phone,birthday) 
-							VALUES ('$user','$pass','$id','$email','$phone','$birth')";
+	$user=$_POST['user'];
+	$pass=$_POST['password'];	
+	$sql="INSERT INTO user (gender,birthday,email,user,pass) 
+					VALUES ('$gender','$birthday','$email','$user','$pass')";
 			
 	if	(mysqli_query($con,$sql))
 		{//Success Insert
@@ -23,12 +22,11 @@
 			echo "		<body>";			
 			echo "			<div id='newdataform'>";
 			echo "			<h3>Your Data is</h3>";
-			echo "				user : ".$user."<br>";
-			echo "				pass : ".$pass."<br>";
-			echo "				id   : ".$id['id']."<br>";
-			echo "				email :".$email."<br>";
-			echo "				phone :".$phone."<br>";
+			echo "				gender :".$gender."<br>";
 			echo "				birthday :".$birthday."<br>";
+			echo "				email :".$email."<br>";
+			echo "				user : ".$user."<br>";
+			echo "				pass : ".$pass."<br>";			
 			echo "				<center><a href='../index.php' style='text-decoration:none'>Back to HomePage ?</a></center>";
 			echo "			</div>";					
 			echo "		</body>";
