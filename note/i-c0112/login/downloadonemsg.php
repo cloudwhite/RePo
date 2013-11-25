@@ -12,7 +12,8 @@ if (!$db) {
     die("{\"error\": \"$err\"}");
 }
 
-$query = "SELECT sid, userAcc, subject, content, timestamp FROM msg_board ORDER BY timestamp DESC";
+$sid = $_POST['sid'];
+$query = "SELECT sid, userAcc, subject, content, timestamp FROM msg_board WHERE sid='$sid'";
 $result = $db->query($query);
 if (!$result) {
     $err = $db->error;
@@ -20,13 +21,12 @@ if (!$result) {
     die("{\"error\": \"$err\"}");
 }
 
-$ret = Array();
-$max = 10;
-$cnt = 0;
 // fetch at most 10 rows
-while ( ($arr = $result->fetch_assoc() ) && $cnt < $max) {
+if ( $arr = $result->fetch_assoc()) {
     $arr['timestamp'] = (int)($arr['timestamp']);
-    $ret[$cnt++] = $arr;
 }
-echo(json_encode($ret));
+
+$result->close();
+$db->close();
+echo(json_encode(array($arr)));
 ?>

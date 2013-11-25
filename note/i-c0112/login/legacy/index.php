@@ -1,5 +1,5 @@
 <?php
-include_once('config.php');
+include('config.php');
 $acc = $_POST['account'];
 $pass = $_POST['password'];
 
@@ -40,6 +40,7 @@ else {
 		exit;
 	}
 	
+	$display = "<h1>登入成功</h1>";
 	$login = true;
 }
 ?>

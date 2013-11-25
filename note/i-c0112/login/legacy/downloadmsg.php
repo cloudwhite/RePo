@@ -1,5 +1,5 @@
 <?php
-require_once('config.php');
+require('config.php');
 
 if (!isset($_SESSION[$session])) {
     die("{\"error\": \"Plz login!\"}");
@@ -27,6 +27,8 @@ $cnt = 0;
 while ( ($arr = $result->fetch_assoc() ) && $cnt < $max) {
     $arr['timestamp'] = (int)($arr['timestamp']);
     $ret[$cnt++] = $arr;
+    // var_dump($arr);
+    // echo '<br/>' . PHP_EOL;
 }
 echo(json_encode($ret));
 ?>
