@@ -19,7 +19,7 @@ CREATE DATABASE  `forum` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 -- 
 -- 資料表格式： `board`
 -- 
-
+```SQL
 CREATE TABLE `board` (
   `sid` int(9) NOT NULL auto_increment,
   `type` varchar(9) collate utf8_unicode_ci NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE `board` (
   `file` varchar(18) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`sid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
+```
 -- 
 -- 列出以下資料庫的數據： `board`
 -- 
@@ -41,7 +41,7 @@ CREATE TABLE `board` (
 -- 
 -- 資料表格式： `user`
 -- 
-
+```SQL
 CREATE TABLE `user` (
   `sid` int(9) NOT NULL auto_increment,
   `gender` varchar(4) collate utf8_unicode_ci NOT NULL,
@@ -51,8 +51,7 @@ CREATE TABLE `user` (
   `pass` varchar(18) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`sid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
+```
 -- 
 -- 列出以下資料庫的數據： `user`
 -- 
-
