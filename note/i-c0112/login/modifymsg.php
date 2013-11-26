@@ -1,13 +1,13 @@
 <?php
-require("config.php");
+require_once("config.php");
 
 if (!isset($_SESSION[$session])) {
     die('Plz login!');
 }
 
 $sid = $_POST['sid'];
-$subject = $_POST['subject'];
-$content = $_POST['content'];
+$subject = htmlspecialchars(htmlspecialchars_decode(($_POST["subject"])));
+$content = htmlspecialchars(htmlspecialchars_decode(($_POST["content"])));
 
 $mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 if ($mysqli->connect_errno) {

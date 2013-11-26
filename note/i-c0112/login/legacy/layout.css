@@ -25,6 +25,9 @@
 }
 
 #msg_board {
+    width: 50%;
+    margin-left: 8%;
+    margin-right: auto;
 	color: blue;
 	font-style: oblique;
 	font-weight: bold;
@@ -37,11 +40,9 @@
 #input_area {
     position:fixed;
     top: 45%;
-    right: 10%;
 }
 
 table {
-    width: 50%;
     padding-left: 8%;
 }
 

@@ -1,6 +1,6 @@
 <?php
 header('content-type: application/javascript');
-require_once('config.php');
+require('config.php');
 ?>
 
 function send_text() {
@@ -39,54 +39,35 @@ function send_text() {
             });
 }
 
-function load_msg(_sid) {
-    if (_sid === "undefined") {
-	_sid = false;
-    }
-
+function load_msg() {
     $.ajax({
-        url: ((!_sid)? "downloadmsg.php": "downloadonemsg.php"),
+        url: "downloadmsg.php",
         type: "POST",
         dataType: "json",
-        data : ((!_sid)? {}: {sid: _sid}),
         success: function(data, status, jqXHR){
             if (data.error) {
                 alert("Failed to fetch data from server!");
                 return;
             }
-            if (!_sid) {
-                var o = $('#output');
-                o.html('');
-                var html = '';
-                for(var i in data) {
-                    var dt = new Date(data[i].timestamp * 1000);
-                    html +=
-                    '<div class="msg" id=\"' + data[i].sid + '\"><br/><br/><span class="userAcc" >' + data[i].userAcc + '</span>' + '    發表於    ' + dt.toLocaleString()
-                    + '<p class="subject">' + data[i].subject + '</p>' + '<p class="content">' + data[i].content.replace(/\n/g, "<br>") + '</p>'
-            		+ '<button class="del">Delete</button></div>';
-                }
-                o.html(html);
-            }
-	    else {
-		var dt = new Date(data[0].timestamp * 1000);
-                var html = '';
+            var o = $('#output');
+            o.html('');
+            var html = '';
+            for(var i in data) {
+                var dt = new Date(data[i].timestamp * 1000);
                 html +=
-                    '<div class="msg" id=\"' + data[0].sid + '\"><br/><br/><span class="userAcc" >' + data[0].userAcc + '</span>' + '    發表於    ' + dt.toLocaleString()
-		    + '<p class="subject">' + data[0].subject + '</p>'
-			+ '<p class="content">' + data[0].content.replace(/\n/g, "<br>") + '</p>'
-                    + '<button class="del">Delete</button></div>';
-                $(".msg#" + _sid).html('').html(html);
+                '<div class="msg" id=\"' + data[i].sid + '\"><br/><br/><span class="userAcc" >' + data[i].userAcc + '</span>' + '    發表於    ' + dt.toLocaleString()
+                + '<p class="subject">' + data[i].subject + '</p>' + '<p class="content">' + data[i].content.replace(/\n/g, "<br>\n") + '</p>'
+                + '<button class="del">Delete</button>'
+                + '<button class="modify">Modify</button><br/>====================================</div>';
             }
+            o.html(html);
             
             $(".msg button").each(function(i){
-                var disable = !($(this).siblings(".userAcc").html() === <?php print "'$_SESSION[$session]'";?>);
+                var disable = !($(this).siblings(".userAcc").text() === <?php print "'$_SESSION[$session]'";?>);
                 this.disabled = disable;
-		if (!disable) {
-		    $(this).addClass("enabled").siblings("p").attr("contenteditable", (!disable).toString());
-		}
-	    });
-
-	    prevent = false;
+                if (!disable)
+                    $(this).addClass("enabled");
+            });
         },
         error: function(jqXHR, status, err){
             console.log(err);
@@ -110,7 +91,7 @@ function delete_msg_from_server(e) {
         },
         success: function(data, status, err){
             if (data) {
-                alert(data);
+                alert(data+"123321");
             }
             else {
                 $(btn).parent().remove();
@@ -120,33 +101,42 @@ function delete_msg_from_server(e) {
             alert(err);
         }
     });
+};
+
+function edit_mode(e) {
+    var btn = e.target;
+    $("#send_text").val("修改").attr("id", "mod_text");
+    if (! $("#cancel").length) {
+        $("#input_area").append("<button id='cancel'>取消</button>");
+    }
+    var jq = $(btn).parent();
+    $("#subject").val(jq.children(".subject").html());
+    $("#content").val(jq.children(".content").html().replace(/[&lt;br&gt;|<br>]/g, ""));
+    
+    $(".selected").removeClass("selected");
+    jq.addClass("selected");
 }
 
-var prevent = false;
-function modify_text(e) {
-    if (prevent)
-	return;
-    prevent = true;
-
-    // confirm changes
-    if (confirm("確認修改?"+e.target.innerHTML)) {
-	modify_msg_from_server(e);
-    }
-    else {
-	load_msg(e.target.parentNode.id);
-    }
+function view_mode(e) {
+    var btn = e.target;
+    
+    var jqInput = $(btn).parent();
+    jqInput.children("#mod_text")
+    .val("送出").attr("id", "send_text");
+    jqInput.children("#subject, #content").val("");
+    
+    $(btn).remove();
+    $(".selected").removeClass("selected");
 }
 
-// modify confirmed
 function modify_msg_from_server(e) {
-    var el = e.target;
-    var msg = el.parentNode;
-    var _sid = msg.id;
-    var jq = $(msg);
-    var _subject = jq.children(".subject").html();
-    console.log(_subject + '\n');
-    var _content = jq.children(".content").html().replace(/<\/div>/g, '').replace(/(<br>|<div>)/g, "\n");
-    console.log(_content + '\n');
+    var btn = e.target;
+    
+    var _sid = $(".selected").attr("id");
+    var jq = $("#input_area");
+    var _subject = jq.children("#subject").val();
+    var _content = jq.children("#content").val();
+    jq.children("#subject, #content").val("");
     
     $.ajax({
         url: "modifymsg.php",
@@ -159,11 +149,17 @@ function modify_msg_from_server(e) {
         },
         success: function(data, status, err){
             if (data) {
-		alert(data);
+                alert(data);
             }
             else {
-                load_msg(_sid);
-	    }
+                $("#selected").remove();
+                load_msg();
+                // click the cancel button for users.
+                var _cancel = $("#cancel");
+                if (_cancel.length) {
+                    _cancel.click();
+                }
+            }
         },
         error: function(jqXHR, status, err){
             alert(err);
