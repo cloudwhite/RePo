@@ -13,21 +13,15 @@ else{
         $sql="UPDATE board SET content='$content' WHERE sid='$sid'";                        
         if	(mysqli_query($con,$sql))
                 {//Success Insert
-                        echo "<html>";
-                        echo "	<head>";
-                        echo "  	<meta charset='utf-8'>";
-                        echo "  	<title>Update Success !</title>";
-                        echo "  	<link rel='stylesheet' type='css/text' href='../css/Update_Essay.css'>";
-                        echo "		<script src='../js/function.js'></script>";
+						echo "<html>";
+						echo "	<head>";
+						echo "		<meta charset='utf-8'>";
+						echo "		<title>更新成功 !</title>";
 						echo "	</head>";
-                        echo "	<body>";                        
-                        echo "      <div id='Update_Essayform'>";
-                        echo "      	<h3>Update Data is</h3>";											
-                        echo "      	content : ".$content."<br>";   
-                        echo "      </div><br>";
-						echo "  	<input type='button' value='首頁' onclick='HomePage()' />";						
-                        echo "	</body>";
-                        echo "</html>";
+                        echo "<script>";											
+                        echo "	alert('更新內容為:'+'$content');";
+						echo "	location.href='../index.php'";
+						echo "</script>";
                                                
                 }
         else{

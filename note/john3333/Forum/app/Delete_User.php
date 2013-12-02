@@ -8,7 +8,6 @@ else{
 // Create connection
         $con=mysqli_connect("127.0.0.1","root","root","Forum");
 //
-		
 		$gender=$_POST['gender'];
         $birthday=$_POST['birthday'];
 		$email=$_POST['email'];
@@ -23,11 +22,11 @@ else{
                         echo "        <head>";
                         echo "                <head>";
                         echo "                        <meta charset='utf-8'>";
-                        echo "                        <title>Update Success !</title>";
+                        echo "                        <title>Delete User Success !</title>";
                         echo "                        <link rel='stylesheet' type='css/text' href='../css/Delete_User.css'>";
                         echo "                </head>";
                         echo "                <body>";                        
-                        echo "                        <div id='Delete_User'>";
+                        echo "                        <div id='Delete_User_form'>";
                         echo "                        <h3>Delete Data is</h3>";
 						echo "                                gender :".$gender."<br>";
 						echo "                                birthday :".$birthday."<br>";
@@ -47,6 +46,6 @@ else{
                         die('Error: ' . mysqli_error($con));
         }
         
-        
-}        
+}
+unset($_SESSION['user']);      
 ?>

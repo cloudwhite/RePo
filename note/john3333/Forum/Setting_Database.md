@@ -27,7 +27,7 @@ CREATE TABLE `board` (
   `title` varchar(18) collate utf8_unicode_ci NOT NULL,
   `image` varchar(44) collate utf8_unicode_ci NOT NULL,
   `content` text collate utf8_unicode_ci NOT NULL,
-  `file` varchar(18) collate utf8_unicode_ci NOT NULL,
+  `file` varchar(128) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`sid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 ```
@@ -44,7 +44,7 @@ CREATE TABLE `board` (
 ```SQL
 CREATE TABLE `user` (
   `sid` int(9) NOT NULL auto_increment,
-  `gender` varchar(4) collate utf8_unicode_ci NOT NULL,
+  `gender` varchar(1) collate utf8_unicode_ci NOT NULL,
   `birthday` varchar(10) collate utf8_unicode_ci NOT NULL,
   `email` varchar(44) collate utf8_unicode_ci NOT NULL,
   `user` varchar(18) collate utf8_unicode_ci NOT NULL,
