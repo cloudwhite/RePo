@@ -8,9 +8,39 @@ session_start();
 	$type=$_SESSION['type'];
 	$author=$_SESSION['user'];
 	$title=$_POST['title'];
-	$image=$_POST['image'];
+	$image=$_FILES['image']['name'];
 	$content=$_POST['content'];
-	$file=$_POST['file'];
+	$file=$_FILES['file']['name'];
+	if ($_FILES["file"]["error"] > 0){
+		echo "<h1>Error<h1>";
+	}
+  	else{
+		echo "<p>上傳檔案名稱 : " . $_FILES["image"]["name"] . "</p><br>";
+    	echo "<p>檔案種類 : " . $_FILES["image"]["type"] . "</p><br>";
+    	echo "<p>檔案大小 : " . ($_FILES["image"]["size"] / 1024) . " kB</p><br>";	
+    	if 	(file_exists("../file/image/" . $_FILES["image"]["name"])){	
+				echo "<p>" . $_FILES["image"]["name"] . "檔案已存在 !</p>";
+		}
+		else{	
+				move_uploaded_file($_FILES["image"]["tmp_name"],"../file/image/" . $_FILES["image"]["name"]);      						  		
+				echo "<p>上傳成功 !</p><br>";
+     	}
+ 	}
+	if ($_FILES["file"]["error"] > 0){
+		echo "<h1>Error<h1>";
+	}
+  	else{
+		echo "<p>上傳檔案名稱 : " . $_FILES["file"]["name"] . "</p><br>";
+    	echo "<p>檔案種類 : " . $_FILES["file"]["type"] . "</p><br>";
+    	echo "<p>檔案大小 : " . ($_FILES["file"]["size"] / 1024) . " kB</p><br>";	
+    	if 	(file_exists("../file/file/" . $_FILES["file"]["name"])){	
+				echo "<p>" . $_FILES["file"]["name"] . "檔案已存在 !</p>";
+		}
+		else{	
+				move_uploaded_file($_FILES["file"]["tmp_name"],"../file/file/" . $_FILES["file"]["name"]);      						  		
+				echo "<p>上傳成功 !</p><br>";
+     	}
+ 	}
 	$sql="INSERT INTO board (type,author,title,image,content,file)
 					 VALUES ('$type','$author','$title','$image','$content','$file')";
 			

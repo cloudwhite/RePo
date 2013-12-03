@@ -6,20 +6,24 @@ session_start();
 
 echo "<html>";
 echo "	<head>";
-echo "		<title>Po¤å</title>";
+echo "		<meta charset='utf-8'>";
+echo "		<title>Poæ–‡</title>";
+echo "		<link rel='stylesheet' type='css/text' href='./css/Po.css' />";
+echo "		<script src='./js/function.js'></script>";
 echo "	</head>";
 	
 echo "	<body>";
 echo "	<div id='Po_form'>";
-echo "		<form action='./app/Po.php' method='POST' name='writing'>";
-echo "			PoºØÃþ :".$_SESSION['type']."<br>";
-echo "			¼ÐÃD¡G<input type='text' name='title' /><br>";
-echo "			¹Ï¤ù¡G<br>";
-echo "			¤å³¹¤º®e¡G<input type='text' name='content' /><br>";
-echo "			ªþ¥óÀÉ®×¡G<br>";
-echo "			<input type='submit' value='PO_ing'>";
+echo "		<form action='./app/Po.php' method='POST' name='Po_form' enctype='multipart/form-data'>";
+echo "			Poç¨®é¡ž :".$_SESSION['type']."<br>";
+echo "			æ¨™é¡Œï¼š<input type='text' name='title' /><br>";
+echo "			åœ–ç‰‡ï¼š<input type='file' name='image' /><br>";
+echo "			æ–‡ç« å…§å®¹ï¼š<input type='text' name='content' /><br>";
+echo "			é™„ä»¶æª”æ¡ˆï¼š<input type='file' name='file' /><br>";
+echo "			<input type='submit' value='PO'>";
 echo "		</form>";
 echo "	</div>";
+echo "	<input type='button' value='è¿”å›žé¦–é ' onclick='index()' />";
 echo "	</body>";
 echo "</html>";
 ?>
