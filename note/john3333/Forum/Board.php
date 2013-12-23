@@ -1,11 +1,5 @@
 <?php
 session_start();
-if($_SESSION['user']==null){
-	echo "<script>";
-	echo "	alert('請先註冊再觀看內容!');";
-	echo " 	location.href='./Register.php'";
-	echo "</script>";
-}
 echo "<html>";
 echo "	<head>";
 echo "		<meta charset='utf-8'>";

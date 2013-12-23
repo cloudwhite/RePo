@@ -5,8 +5,7 @@ session_start();
         }
         else{
                 $con=mysqli_connect("127.0.0.1","root","root","Forum");
-				$sid=$_GET['sid'];
-				$_SESSION['sid']=$sid;
+				$sid=$_SESSION['sid'];
                 $sql="SELECT * FROM board WHERE sid='$sid'";                
                 if	(mysqli_query($con,$sql))
                 {                        
@@ -27,13 +26,36 @@ session_start();
 							echo "		<script src='./js/function.js'></script>";
 							echo "  </head>";
 							echo "  <body>";
+							echo "	<div id='image_form'>";
+								if($row['image']!=null){
+									echo "		<img src='./file/image/".$row['image']."' />";
+								}
+								else{
+									echo "No Image";
+								}			
+							echo "	</div><br>";
+							echo "	<div id='file_form'>";
+								if($row['file']!=null){
+									echo "		<a href='./file/file/".$row['file']."' target='_blank' >".$row['file']."</a>";
+								}
+								else{
+									echo "No Image";
+								}			
+							echo "	</div><br>";
+							echo "	<div id='content_form'>";
+								if($row['content']!=null){
+									echo $row['content']."<br>";
+								}
+								else{
+								}
+							echo "	</div><br>";	
 							echo "     	<div id='Delete_Essay_form'>";
 							echo "      	<form action='./app/Delete_Essay.php' method='POST' name='Delete_Essay_form'>";
-							echo "				content: <input type='text' value='".$row['content']."' name='content' /><br>";
-							echo "          <input type='submit' value='確認刪除'>";														
+							echo "				<h3>警告 ! 若刪除資料將無法復原!!</h3>";							
+							echo "          <input type='submit' value='確認刪除'><br>";
+							echo "			<input type='button' value='返回首頁' onclick='index()'>";							
 							echo "          </form>";							  							
 							echo "      </div><br>";							
-							echo "		<input type='button' value='返回首頁' onclick='index()'>";
 							echo "	</body>";
 							echo "</html>";
 						}

@@ -14,18 +14,14 @@ session_start();
 			if	($password==$row['pass'])
 				{	
 					$_SESSION['user']=$row['user'];
+					echo "Login Success !";
 				}
-			else{
-					echo "<script>";
-					echo "	alert('Login Fail !')";
-					echo "</script>";
+			else{					
+					echo "Login Fail !";
 				}
 		}
 	else{
-			"Error Connection !";
+			echo "Error Connection !";
 		}
 	mysqli_close($con);
-echo "<script>";
-echo "	location.href='../index.php';";
-echo "</script>;";
 ?>

@@ -10,18 +10,18 @@ function Register(){
 function Po(){
 	location.href='./Po.php';
 }
+function Logout(){
+	location.href='./app/Logout.php';
+}
 function Update_User(){
 	location.href='./Update_User.php';
-}
-function Update_Essay(sid){
-	location.href='./Update_Essay.php?sid='+sid;
 }
 function Delete_User(){
 	location.href='./Delete_User.php';
 }
-function Delete_Essay(sid){
-	location.href='./Delete_Essay.php?sid='+sid;
+function Update_Essay(){
+	location.href='./Update_Essay.php';
 }
-function Logout(){
-	location.href='./app/Logout.php';
+function Delete_Essay(){
+	location.href='./Delete_Essay.php';
 }

@@ -7,6 +7,15 @@
 	font-family:cursive;
 	box-shadow:4px 4px 3px rgba(20%,20%,40%,0.5);
 }
+#alerts{
+	position:absolute;
+	top:360;
+	background-color:gray;
+	width:300;
+	height:60;
+	font-family:cursive;
+	box-shadow:4px 4px 3px rgba(20%,20%,40%,0.5);
+}
 #user_form{
 	position:absolute;
 	background-color:gray;
@@ -24,10 +33,19 @@
 	font-family:cursive;
 	box-shadow:4px 4px 3px rgba(20%,20%,40%,0.5);
 }
-#Bt_form{
+#Media_form{
 	position:absolute;
-	top:430;
+	top:450;
 	left:700;
+	background-color:white;
+	height:200;
+	width:100;
+	box-shadow:4px 4px 3px rgba(20%,20%,40%,0.5);
+}
+#Document_form{
+	position:absolute;
+	top:450;
+	left:300;
 	background-color:white;
 	height:200;
 	width:100;
