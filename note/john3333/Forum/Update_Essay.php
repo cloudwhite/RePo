@@ -5,9 +5,10 @@ session_start();
         }
         else{
                 $con=mysqli_connect("127.0.0.1","root","root","Forum");
-				$sid=$_GET['sid'];
-				$_SESSION['sid']=$sid;
-                $sql="SELECT * FROM board WHERE sid='$sid'";                
+				$sid=$_SESSION['sid'];
+                $sql="SELECT * FROM board WHERE sid='$sid'";
+				$result=mysqli_query($con,$sql);
+				$row = mysqli_fetch_array($result);
                 if	(mysqli_query($con,$sql))
                 {                        
                         $result=mysqli_query($con,$sql);
@@ -27,13 +28,34 @@ session_start();
 							echo "		<script src='./js/function.js'></script>";
 							echo "  </head>";
 							echo "  <body>";
+							echo "	<div id='image_form'>";
+									if($row['image']!=null){
+										echo "		<img src='./file/image/".$row['image']."' />";
+									}
+									else{
+										echo "No Image";
+									}			
+							echo "	</div>";
+							echo "	<div id='file_form'>";
+									if($row['file']!=null){
+										echo "		<a href='./file/file/".$row['file']."' target='_blank' >".$row['file']."</a>";
+									}
+									else{
+										echo "No File";
+									}			
+							echo "	</div>";
+							echo "	<div id='content_form'>";
+								echo $row['content']."<br>";
+							echo "	</div><br>";
 							echo "     	<div id='Update_Essay_form'>";
-							echo "      	<form action='./app/Update_Essay.php' method='POST' name='Update_Essay_form'>";
-							echo "				content: <input type='text' value='".$row['content']."' name='content' /><br>";
-							echo "          <input type='submit' value='確認更新'>";														
+							echo "      	<form action='./app/Update_Essay.php' method='POST' name='Update_Essay_form' enctype='multipart/form-data'>";
+							echo "				圖片：".$row['image']. " -> <input type='file' name='image' /><br>";
+							echo "				文章內容：<input type='text' name='content' value='".$row['content']."' /><br>";
+							echo "				附件檔案：".$row['file']." -> <input type='file' name='file' value='".$row['file']."' /><br>";
+							echo "          <input type='submit' value='確認更新'><br>";														
+							echo "			<input type='button' value='返回首頁' onclick='index()'>";
 							echo "          </form>";							  							
 							echo "      </div><br>";							
-							echo "		<input type='button' value='返回首頁' onclick='index()'>";
 							echo "	</body>";
 							echo "</html>";
 						}

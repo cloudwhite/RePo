@@ -1,7 +1,10 @@
 #Register_form{
+	position:absolute;
+		top:100;
+		left:100;
 	background-color:white;
-	width:300;
-	height:180;
+	width:400;
+	height:300;
 	font-family:cursive;
 	box-shadow:4px 4px 3px rgba(20%,20%,40%,0.5);
 	font-family:cursive;

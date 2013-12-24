@@ -11,8 +11,7 @@ else{
 		$gender=$_POST['gender'];
         $birthday=$_POST['birthday'];
 		$email=$_POST['email'];
-		$pass=$_POST['pass'];
-		
+		$pass=$_POST['pass'];		
         $user=$_SESSION['user'];
         $sql="DELETE FROM user where user='$user'";
                         
@@ -26,16 +25,16 @@ else{
                         echo "                        <link rel='stylesheet' type='css/text' href='../css/Delete_User.css'>";
                         echo "                </head>";
                         echo "                <body>";                        
-                        echo "                        <div id='Delete_User_form'>";
-                        echo "                        <h3>Delete Data is</h3>";
-						echo "                                gender :".$gender."<br>";
-						echo "                                birthday :".$birthday."<br>";
-						echo "                                email :".$email."<br>";
-                        echo "                                user : ".$user."<br>";						
-                        echo "                                pass : ".$pass."<br>";
-                        
-                        echo "                                <center><a href='../index.php' style='text-decoration:none'>Back to HomePage ?</a></center>";
-                        echo "                        </div>";                                        
+                        echo "                        <script>".
+						                                "alert('".
+														"gender :".$gender."\\r".
+						                                "birthday :".$birthday."\\r".
+						                                "email :".$email."\\r".
+                                                        "user : ".$user."\\r".				
+                                                        "pass : ".$pass."\\r".
+														"');".
+														"location.href='../index.php';";
+                        echo "                        </script>";                                        
                         echo "                </body>";
                         echo "        </head>";
                         echo "</html>";                

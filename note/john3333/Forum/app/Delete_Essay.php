@@ -8,7 +8,6 @@ else{
 // Create connection
         $con=mysqli_connect("127.0.0.1","root","root","Forum");
 //
-		$content=$_POST['content'];
 		$sid=$_SESSION['sid'];
 		$sql="SELECT * FROM board WHERE sid='$sid'";
 		$result=mysqli_query($con,$sql);
@@ -45,8 +44,7 @@ else{
 						echo "	</head>";
                         echo "	<body>";                        
                         echo "      <div id='Delete_Essay_form'>";
-                        echo "      	<h3>Delete Data is</h3>";											
-                        echo "      	content : ".$content."<br>";   
+                        echo "      	<h3>刪除成功 !</h3>";                
                         echo "      </div><br>";
 						echo "  	<input type='button' value='首頁' onclick='HomePage()' />";				
 						echo "	</body>";
